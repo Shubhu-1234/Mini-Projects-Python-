@@ -1,70 +1,70 @@
-# a healthy programmer
-"""we have to make functions for eye , exercise , and drink water"""
+# Healthy Programmer
 import time
-from datetime import datetime
-def eye():
+import pygame
+from pygame import mixer
+start_time=time.time()
+
+def songs():
     from pygame import mixer
-    mixer.init()
-    mixer.music.load("Alarm Bell.mp3")
-    mixer.music.play()
-def exercise():
-    from pygame import mixer
-    mixer.init()
-    mixer.music.load("Alarm Bell.mp3")
-    mixer.music.play()
-def water():
-    from pygame import mixer
-    mixer.init()
-    mixer.music.load("Alarm Bell.mp3")
-    mixer.music.play()
+    mixer.init()  # Instantiate mixer
+    mixer.music.load('Alarm Bell.mp3')  # Load audio file
+    print("music started playing....")
+    mixer.music.set_volume(0.2)  # Load audio file
+    mixer.music.play(-1)  # Play the music
+
 def getdate():
-    import datetime
-    return datetime.datetime.now() #This will print "2022-04-16 18:51:12.312057"
+    from datetime import datetime
+    now = datetime.now()
+    #print(now.strftime('%Y/%m/%d %H:%M:%S'))  # 24-hour format
+    now.strftime('%Y/%m/%d %I:%M:%S %p')  # 12-hour format
+    return now.strftime('%d/%m/%Y %I:%M:%S %p')   #This will print "16/06/2022 08:50:57 PM"
 v=getdate()
 v=str(v)
 
-if __name__ == "__main__":
-    log = 20
-    while(log>1):
-        time.sleep(5)
-        eye()
-        inp4 = input("time to do eye exercise , enter 'ey done' to stop the alarm : ")
-        if inp4=="ey done":
-            from pygame import mixer
-            mixer.init()
-            mixer.music.load("Alarm Bell.mp3")
+while True:
+    current_time = time.time()
+    elapsed_time = current_time - start_time
+    print(elapsed_time)
+    if elapsed_time > 5:
+        songs()
+        print("Enter Done to stop the song")
+        x = str(input())
+        if x == "Done":
             mixer.music.stop()
-            with open("Eye.txt", "a") as f:
-                s = "Time:[{}] Eye:{}\n".format(v, inp4)
-                f.write(s)
-            log = log-1
-        else:
-            print(" enter a valid input! after 5 seconds. ")
-        time.sleep(5)
-        exercise()
-        inp5 = input("time to do physical exercise , enter 'ex done' to stop the alarm : ")
-        if inp5=="ex done":
-            from pygame import mixer
-            mixer.init()
-            mixer.music.load("Alarm Bell.mp3")
-            mixer.music.stop()
-            with open("Physical_Exercise.txt", "a") as f:
-                s = "Time:[{}] Physical_Exercise:{}\n".format(v, inp5)
-                f.write(s)
-            log = log-1
-        else:
-            print(" enter a valid input! after 5 seconds. ")      
-        time.sleep(5)
-        exercise()
-        inp6 = input("time to drink water , enter 'dw done' to stop the alarm : ")
-        if inp6=="dw done":
-            from pygame import mixer
-            mixer.init()
-            mixer.music.load("Alarm Bell.mp3")
-            mixer.music.stop()
+            print("music is stopped....")
             with open("Water.txt", "a") as f:
-                s = "Time:[{}] Eye:{}\n".format(v, inp6)
+                s = f"Time:[{v}] You have drank Water\n"
                 f.write(s)
-            log = log-1
-        else:
-            print(" enter a valid input! after 5 seconds. ")# a healthy programmer
+            break
+
+while True:
+    current_time = time.time()
+    elapsed_time = current_time - start_time
+    print(elapsed_time)
+    if elapsed_time > 15:
+        songs()
+        print("Enter Done to stop the song")
+        x = str(input())
+        if x == "Done":
+            mixer.music.stop()
+            print("music is stopped....")
+            with open("Eye.txt", "a") as f:
+                s = f"Time:[{v}] You have performed Eye Exercise.\n"
+                f.write(s)
+            break
+
+while True:
+    current_time = time.time()
+    elapsed_time = current_time - start_time
+    print(elapsed_time)
+    if elapsed_time > 25:
+        songs()
+        print("Enter Done to stop the song")
+        x = str(input())
+        if x == "Done":
+            mixer.music.stop()
+            print("music is stopped....")
+            with open("Physical_Exercise.txt", "a") as f:
+                s = f"Time:[{v}] You have done Physical Exercise\n"
+                f.write(s)
+            break

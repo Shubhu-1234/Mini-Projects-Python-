@@ -21,6 +21,7 @@ def getdate():
 v=getdate()
 v=str(v)
 
+# This is for Water.
 while True:
     current_time = time.time()
     elapsed_time = current_time - start_time
@@ -37,6 +38,7 @@ while True:
                 f.write(s)
             break
 
+# This is for Eye.
 while True:
     current_time = time.time()
     elapsed_time = current_time - start_time
@@ -53,6 +55,7 @@ while True:
                 f.write(s)
             break
 
+# This is for Physical Exercise.
 while True:
     current_time = time.time()
     elapsed_time = current_time - start_time

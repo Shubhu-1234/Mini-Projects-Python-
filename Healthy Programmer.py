@@ -21,53 +21,69 @@ def getdate():
 v=getdate()
 v=str(v)
 
-# This is for Water.
 while True:
-    current_time = time.time()
-    elapsed_time = current_time - start_time
-    print(elapsed_time)
-    if elapsed_time > 5:
-        songs()
-        print("Enter Done to stop the song")
-        x = str(input())
-        if x == "Done":
-            mixer.music.stop()
-            print("music is stopped....")
-            with open("Water.txt", "a") as f:
-                s = f"Time:[{v}] You have drank Water\n"
-                f.write(s)
-            break
+    # This is for Water.
+    while True:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+        print(elapsed_time)
+        if elapsed_time > 5:
+            songs()
+            print("Enter Done to stop the song")
+            x = str(input())
+            if x == "Done":
+                mixer.music.stop()
+                print("music is stopped....")
+                with open("Water.txt", "a") as f:
+                    s = f"Time:[{v}] You have drank Water\n"
+                    f.write(s)
+                break
 
-# This is for Eye.
-while True:
-    current_time = time.time()
-    elapsed_time = current_time - start_time
-    print(elapsed_time)
-    if elapsed_time > 15:
-        songs()
-        print("Enter Done to stop the song")
-        x = str(input())
-        if x == "Done":
-            mixer.music.stop()
-            print("music is stopped....")
-            with open("Eye.txt", "a") as f:
-                s = f"Time:[{v}] You have performed Eye Exercise.\n"
-                f.write(s)
-            break
+    # This is for Eye.
+    while True:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+        print(elapsed_time)
+        if elapsed_time > 15:
+            songs()
+            print("Enter Done to stop the song")
+            x = str(input())
+            if x == "Done":
+                mixer.music.stop()
+                print("music is stopped....")
+                with open("Eye.txt", "a") as f:
+                    s = f"Time:[{v}] You have performed Eye Exercise.\n"
+                    f.write(s)
+                break
 
-# This is for Physical Exercise.
-while True:
-    current_time = time.time()
-    elapsed_time = current_time - start_time
-    print(elapsed_time)
-    if elapsed_time > 25:
-        songs()
-        print("Enter Done to stop the song")
-        x = str(input())
-        if x == "Done":
-            mixer.music.stop()
-            print("music is stopped....")
-            with open("Physical_Exercise.txt", "a") as f:
-                s = f"Time:[{v}] You have done Physical Exercise\n"
-                f.write(s)
+    # This is for Physical Exercise.
+    while True:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+        print(elapsed_time)
+        if elapsed_time > 25:
+            songs()
+            print("Enter Done to stop the song")
+            x = str(input())
+            if x == "Done":
+                mixer.music.stop()
+                print("music is stopped....")
+                with open("Physical_Exercise.txt", "a") as f:
+                    s = f"Time:[{v}] You have done Physical Exercise\n"
+                    f.write(s)
+                break
+
+    while True:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+        print(elapsed_time)
+        if elapsed_time > 35:
             break
+    start_time=time.time()
+
+
+
+
+
+
+

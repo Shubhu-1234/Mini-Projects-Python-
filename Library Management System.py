@@ -35,20 +35,30 @@ class Library:
                         self.catlog.update({a: b})
                         self.booklist.remove(a)
                         with open("Library.txt", "a") as f:
-                            s = f"Time:[{v}]           Bookname:[{a}]           Bookowner:[{b}]               Debited\n"
+                            s = f"Time:[{v}] Bookname:[{a}] Bookowner:[{b}] Debited Book\n"
                             f.write(s)
             return f"{a} book has been successfully lended."
 
     def donate_books(self):
         while True:
             print("Enter the book name:")
-            d = str(input().capitalize())
+            d = input().capitalize()
             x=d.isalpha()
             if x==False:
                 print("Invalid Choice")
                 continue
             else:
-                self.booklist.append(d)
+                print("Enter your name:")
+                e=input().capitalize()
+                y=e.isalpha()
+                if y==False:
+                    print("Invalid Choice")
+                    continue
+                else:
+                    self.booklist.append(d)
+                    with open("Library.txt","a") as f:
+                        s = f"Time:[{v}] Bookname:[{d}] Bookowner:[{e}] Donated Book\n"
+                        f.write(s)
             return f"{d} book has been successfully donated."
 
     def return_books(self):
@@ -75,7 +85,7 @@ class Library:
                         self.catlog.pop(e)
                         self.booklist.append(e)
                         with open("Library.txt", "a") as f:
-                            s = f"Time:[{v}]           Bookname:[{e}]           Bookowner:[{g}]              Credited\n"
+                            s = f"Time:[{v}] Bookname:[{e}] Bookowner:[{g}] Credited Book\n"
                             f.write(s)
             return f"{e} book has been successfully returned"
 
@@ -94,20 +104,24 @@ Shubham_library=Library(Library_name,List_of_books,Lended_books)
 v=Library.getdate()
 v=str(v)
 while True:
-    print("1.Display Books\n2.Display Catlog\n3.Lend Books\n4.Donate Books\n5.Return Books")
+    print("1.Display Books\n2.Display Catlog\n3.Lend Books\n4.Donate Books\n5.Return Books\nPress any numkey to exit()")
     h=int(input())
-    if h==1:
+    if h == 1:
         print(Shubham_library.display_books())
-    elif h==2:
+    elif h == 2:
         print(Shubham_library.display_catlog())
-    elif h==3:
+    elif h == 3:
         print(Shubham_library.lend_books())
-    elif h==4:
+    elif h == 4:
         print(Shubham_library.donate_books())
-    elif h==5:
+    elif h == 5:
         print(Shubham_library.return_books())
     else:
         break
+
+
+
+
 
 
 
